@@ -7,7 +7,7 @@ export default function Navbar() {
   const router = useRouter();
 
   return (
-    <nav className="fixed flex w-full bg-gray-800 py-5 px-11 justify-between shadow-lg">
+    <nav className="fixed z-50 flex top-0 w-full bg-gray-800 py-5 px-11 justify-between shadow-lg">
       <div className="flex">
         <h1 className="text-white text-2xl mr-8">Navbar</h1>
         <ul className="flex ml-10 items-center text-lg">
