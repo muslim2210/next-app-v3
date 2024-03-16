@@ -1,19 +1,22 @@
 export default function Layout({
   children,
-  product,
+  products,
   analytics,
+  payments,
 }: {
   children: React.ReactNode;
-  product: React.ReactNode;
+  products: React.ReactNode;
   analytics: React.ReactNode;
+  payments: React.ReactNode;
 }) {
   return (
-    <div className="p-5">
+    <div className="p-5 py-24">
       <div>{children}</div>
       <div className="mt-5 flex justify-center items-center gap-5">
-        {product}
+        {products}
         {analytics}
       </div>
+      {payments}
     </div>
   );
 }

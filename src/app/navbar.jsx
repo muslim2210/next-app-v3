@@ -47,6 +47,15 @@ export default function Navbar() {
               Product
             </li>
           </Link>
+          <Link href="/dashboard">
+            <li
+              className={`mr-6 ${
+                pathname === "/dashboard" ? "text-blue-300" : "text-white"
+              } cursor-pointer`}
+            >
+              Dashboard
+            </li>
+          </Link>
         </ul>
       </div>
       <div>

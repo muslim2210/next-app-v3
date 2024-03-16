@@ -5,12 +5,16 @@ type ProductPageProps = {
 };
 
 async function getData() {
-  // const res = await fetch("https://fakestoreapi.com/products");
+  //  chace : force-cache tidak pakai loading
+  // chace : no-store pakai loading
+
+  // const res = await fetch("https://fakestoreapi.com/product", {
+  //   cache: "no-store",
+  // });
   const res = await fetch("http://localhost:3000/api/product", {
     cache: "force-cache",
     next: {
       tags: ["products"],
-      // revalidate: 3600,
     },
   });
 
