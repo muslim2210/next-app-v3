@@ -6,7 +6,7 @@ export const getData = async (url: string) => {
   //   cache: "no-store",
   // });
   const res = await fetch(url, {
-    cache: "force-cache",
+    cache: "no-store",
     next: {
       tags: ["products"],
     },

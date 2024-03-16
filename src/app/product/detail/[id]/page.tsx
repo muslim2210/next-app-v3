@@ -14,8 +14,8 @@ export default async function DetailProductPage(props: any) {
           className="w-full h-[500px] object-cover aspect-square col-span-2"
         />
         <div className="bg-white p-4 px-6">
-          <h3>{product.data.title}</h3>
-          <p>Price : ${product.data.price}</p>
+          <h3>{product.data.name}</h3>
+          <p>Price : Rp. {product.data.price}</p>
         </div>
       </div>
     </div>
