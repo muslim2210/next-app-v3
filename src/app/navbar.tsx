@@ -1,11 +1,11 @@
 "use client";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
+
   const { data: session, status }: { data: any; status: string } = useSession();
 
   return (
@@ -31,15 +31,7 @@ export default function Navbar() {
               About
             </li>
           </Link>
-          <Link href="/about/profile">
-            <li
-              className={`mr-6 ${
-                pathname === "/about/profile" ? "text-blue-300" : "text-white"
-              } cursor-pointer`}
-            >
-              Profile
-            </li>
-          </Link>
+
           <Link href="/product">
             <li
               className={`mr-6 ${
@@ -56,6 +48,15 @@ export default function Navbar() {
               } cursor-pointer`}
             >
               Dashboard
+            </li>
+          </Link>
+          <Link href="/profile">
+            <li
+              className={`mr-6 ${
+                pathname === "/profile" ? "text-blue-300" : "text-white"
+              } cursor-pointer`}
+            >
+              Profile
             </li>
           </Link>
         </ul>
