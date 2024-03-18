@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { status }: { status: string } = useSession();
+  const { data: session, status }: { data: any; status: string } = useSession();
 
   return (
     <nav className="fixed z-50 flex top-0 w-full bg-gray-800 py-5 px-11 justify-between shadow-lg">
@@ -62,12 +62,15 @@ export default function Navbar() {
       </div>
       <div>
         {status === "authenticated" ? (
-          <button
-            className="bg-white text-sm rounded-md px-3 py-2"
-            onClick={() => signOut()}
-          >
-            Logout
-          </button>
+          <div className="flex items-center gap-x-4">
+            <h4 className="text-white">{session?.user?.fullname}</h4>
+            <button
+              className="bg-white text-sm rounded-md px-3 py-2"
+              onClick={() => signOut()}
+            >
+              Logout
+            </button>
+          </div>
         ) : (
           <button
             className="bg-white text-sm rounded-md px-3 py-2"
