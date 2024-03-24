@@ -1,5 +1,15 @@
+import type { Metadata } from "next";
 import { error } from "console";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
+  ),
+  title: "App Router v3",
+  description: "Tutorial belajar Next js by kang avip vipe code studio",
+  authors: [{ name: "bukhori muslim", url: "http://localhost:3000" }],
+};
 
 export default function Home() {
   return (

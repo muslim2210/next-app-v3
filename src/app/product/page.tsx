@@ -1,20 +1,34 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
-import { getData } from "@/services/products";
+// import { getData } from "@/services/products";
+import useSWR from "swr";
 type ProductPageProps = {
   params: { slug: string[] };
 };
 
-export default async function ProductPage(props: ProductPageProps) {
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+export default function ProductPage(props: ProductPageProps) {
   const { params } = props;
-  const products = await getData("http://localhost:3000/api/product");
+
+  const { data, error, isLoading } = useSWR(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/product`,
+    fetcher
+  );
+
+  console.log(data);
+
+  const products = {
+    data: data?.data,
+  };
 
   return (
     <div className="grid grid-cols-4 py-24 mt-11 gap-2 mr-10">
       {/* <h1>{params.slug ? "Detail Porduct Page" : "Product Page"}</h1> */}
 
-      {products.data.length > 0 &&
-        products.data.map((product: any) => (
+      {products.data?.length > 0 &&
+        products.data?.map((product: any) => (
           <Link
             href={`/product/detail/${product.id}`}
             key={product.id}
